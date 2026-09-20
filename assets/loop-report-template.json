@@ -1,0 +1,40 @@
+{
+  "trigger": "",
+  "goal": {
+    "objective": "",
+    "acceptance_criteria": [],
+    "in_scope": [],
+    "out_of_scope": [],
+    "constraints": []
+  },
+  "context": {
+    "sources_consulted": [],
+    "assumptions": [],
+    "authority_limits": []
+  },
+  "execution": {
+    "work_unit": "",
+    "actions_completed": [],
+    "changes_made": [],
+    "failed_attempts": [],
+    "retry_budget": ""
+  },
+  "verification": {
+    "status": "not_run",
+    "checks": []
+  },
+  "decision": {
+    "outcome": "defer",
+    "reason": "",
+    "stop_condition_met": "",
+    "next_action": ""
+  },
+  "human_checkpoint": {
+    "required": false,
+    "decision_needed": "",
+    "risks": [],
+    "recommendation": ""
+  },
+  "harness_improvements": [],
+  "uncertainties": []
+}

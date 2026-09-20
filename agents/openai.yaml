@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Loop Engineering"
+  short_description: "Run bounded, verifiable operational agent loops"
+  default_prompt: "Use $agent-loop-engineering to turn this request into a bounded work unit, execute it safely, verify the result, and stop or escalate deliberately."

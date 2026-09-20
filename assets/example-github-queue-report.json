@@ -1,0 +1,50 @@
+{
+  "trigger": "Triage and fix the next confirmed regression in a 12-issue GitHub queue.",
+  "goal": {
+    "objective": "Fix issue #184, where an empty label filter returns every issue.",
+    "acceptance_criteria": [
+      "An empty label filter returns no filtered results.",
+      "Non-empty label filtering remains unchanged.",
+      "Relevant regression tests pass."
+    ],
+    "in_scope": ["Local reproduction", "Filter implementation", "Regression tests"],
+    "out_of_scope": ["Posting comments", "Opening or merging a pull request", "Processing the next issue"],
+    "constraints": ["Preserve the public filter API", "Do not modify unrelated queue items"]
+  },
+  "context": {
+    "sources_consulted": ["Issue #184", "Filter implementation", "Existing filter tests"],
+    "assumptions": ["The issue's empty-filter example represents intended behavior"],
+    "authority_limits": ["Local changes and tests only; no GitHub writes"]
+  },
+  "execution": {
+    "work_unit": "Resolve and verify issue #184 only.",
+    "actions_completed": ["Reproduced the regression", "Added a regression test", "Corrected empty-filter handling"],
+    "changes_made": ["Filter now returns an empty result for an empty label selection", "Added focused test coverage"],
+    "failed_attempts": [],
+    "retry_budget": "One revision after the initial patch"
+  },
+  "verification": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "Focused filter test suite",
+        "status": "pass",
+        "evidence": "All 18 filter tests passed, including the new empty-selection regression case."
+      }
+    ]
+  },
+  "decision": {
+    "outcome": "close",
+    "reason": "Issue #184 is fixed locally and all required checks pass.",
+    "stop_condition_met": "The current queue item meets its acceptance criteria; selecting another issue requires a new work unit.",
+    "next_action": "Request authority before opening a pull request, or select the next queue item in a separate run."
+  },
+  "human_checkpoint": {
+    "required": false,
+    "decision_needed": "",
+    "risks": [],
+    "recommendation": "Review the local patch before authorizing a pull request."
+  },
+  "harness_improvements": ["Retain the empty-selection regression test"],
+  "uncertainties": []
+}
