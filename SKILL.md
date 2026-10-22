@@ -1,6 +1,6 @@
 ---
 name: agent-loop-engineering
-description: Run disciplined, bounded operational loops for agents and automations. Use when a request involves autonomous or repeated execution, queued work, retries, background tasks, issue or alert handling, CI remediation, inbox processing, verification-driven iteration, human checkpoints, stop conditions, escalation, or outcome recording. Apply it to turn "keep going" or "handle these items" into finite, reviewable units without guessing through product, security, business, or taste decisions.
+description: "Run bounded agent or automation work over queues, retries, background tasks, and verification loops with explicit stop and escalation conditions."
 ---
 
 # Agent Loop Engineering
@@ -69,10 +69,10 @@ Never infer success solely from having performed the action. Label unrun or inco
 
 ### 6. Decide and Record
 
-Choose exactly one terminal decision:
+Choose the next decision for this work unit:
 
 - `close`: goal achieved and required verification passed
-- `retry`: a bounded next attempt is likely to improve the result
+- `retry`: a bounded next attempt is likely to improve the result; this continues the unit and is not a terminal outcome
 - `escalate`: human judgment, authority, or missing context is required
 - `defer`: the unit is valid but cannot proceed within the current constraints
 - `reject`: the requested action is unsafe or outside authority
@@ -105,7 +105,7 @@ When a failure reveals a recurring system weakness, propose the smallest reversi
 - add or revise a skill for a repeated workflow
 - retain memory only for durable, future-useful facts
 
-Do not modify global prompts, credentials, memory, scheduler state, or runtime configuration without explicit approval. Do not schedule recurring execution merely because one run succeeded.
+Do not modify global prompts, credentials, memory, scheduler state, or runtime configuration unless the current request or established authority covers that specific change. Do not schedule recurring execution merely because one run succeeded.
 
 ## Mandatory Stop Rules
 
@@ -115,11 +115,4 @@ A clear stopped-loop report is a valid outcome. Never claim completion, permanen
 
 ## Output Contract
 
-Return:
-
-1. goal and work unit
-2. completed actions or delivered artifact
-3. verification evidence and status
-4. terminal decision
-5. risks, assumptions, and uncertainties
-6. human decision or next action, only when needed
+Return the delivered artifact or result first. Include the work unit, verification evidence, unresolved material uncertainty, and any human decision needed. Use the full machine-readable report only when the task calls for an audit trail or handoff; do not impose a six-field report on an ordinary completed request.

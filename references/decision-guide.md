@@ -30,7 +30,7 @@ Weak feedback includes "looks good," "make it great," or activity counts without
 
 ## Risk and Authority Test
 
-Do not infer authority for:
+Check whether the current request or established authority covers:
 
 - destructive or irreversible actions
 - external messages, purchases, publication, or deployment
@@ -57,14 +57,14 @@ Retries are attempts within one work unit. Recursion that creates new goals requ
 | Decision | Use when |
 |---|---|
 | `close` | Required acceptance criteria and verification pass. |
-| `retry` | A bounded, authorized attempt with a new hypothesis is available. |
+| `retry` | A bounded, authorized attempt with a new hypothesis is available; continue the same unit. |
 | `escalate` | A human decision, authority grant, or missing material context is required. |
 | `defer` | The work is valid but blocked by current constraints or timing. |
 | `reject` | The action is unsafe, prohibited, or outside the permitted system. |
 
 ## Scheduling Requirements
 
-Before creating a recurring job, require explicit approval of:
+Before creating a recurring job, establish authority and the following details:
 
 - trigger and cadence
 - queue source and item ownership
